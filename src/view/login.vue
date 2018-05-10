@@ -44,9 +44,9 @@ export default {
       });
 
       var rasterLayer = new ol.layer.Tile({
-        source: new ol.source.TileJSON({
-          url: 'https://api.tiles.mapbox.com/v3/mapbox.geography-class.json?secure',
-          crossOrigin: ''
+        source: new ol.source.BingMaps({
+          key: 'Your Bing Maps Key from http://www.bingmapsportal.com/ here',
+          imagerySet: 'Aerial'
         })
       });
 
@@ -57,8 +57,8 @@ export default {
         ]),
         target: document.getElementById('map'),
         view: new ol.View({
-          center: [0, 0],
-          zoom: 3
+          center: [-9101767, 2822912],
+          zoom: 14
         })
       });
 
@@ -113,7 +113,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .map {
-    height: 400px;
+    height: 100%;
     width: 100%;
   }
 </style>

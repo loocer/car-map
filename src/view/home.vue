@@ -1,20 +1,7 @@
 <template>
   <div class="hello">
-    <header-layer></header-layer>
-    <!-- <p>{{ msg }}</p> -->
-    <div class="container">
-        <div class="row" >
-            <div class="col-sm-6 col-xs-6" >
-                
-                <button type="button" class="btn btn-default"><router-link to="create-room">创建房间</router-link></button>
-            </div>
-            <div class="col-sm-6 col-xs-6" >
-                
-                <button type="button" class="btn btn-default"><router-link to="come-room">加入房间</router-link></button>
-            </div>
-        </div>
-    </div>
-    
+    <div id="map" class="map"></div>
+    jijij
   </div>
 </template>
 
@@ -29,6 +16,28 @@ export default {
     return {
       msg: '哟嗬喂扎金花'
     }
+  },
+  mounted () {
+    var view = new ol.View({
+        center: [-9101767, 2822912],
+        zoom: 14
+      });
+
+      var map = new ol.Map({
+        controls: ol.control.defaults().extend([
+          new ol.control.FullScreen()
+        ]),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.BingMaps({
+              key: 'Your Bing Maps Key from http://www.bingmapsportal.com/ here',
+              imagerySet: 'Aerial'
+            })
+          })
+        ],
+        target: 'map',
+        view: view
+      });
   }
 }
 </script>
